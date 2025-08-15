@@ -67,7 +67,7 @@ export const getAccessToken = async () => {
 
 const getToken = async (code) => {
     const encodeCode = encodeURIComponent(code);
-    const response = await fetch('https://meet-chi-eight.vercel.app/api/get-access-token' + '/' + encodeCode);
+    const response = await fetch('https://meet-chi-eight.vercel.app/api/token' + '/' + encodeCode);
     const { access_token } = await response.json();
     access_token && localStorage.setItem('access_token', access_token);
 
