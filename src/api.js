@@ -36,7 +36,7 @@ export const getEvents = async () => {
 
     if(token) {
         removeQuery();
-        const url = 'https://meet-chi-eight.vercel.app/api/get-events' + '/' + token;
+        const url = 'https://fw3jzlg092.execute-api.us-east-1.amazonaws.com/dev/api/get-events' + '/' + token;
         const response = await fetch(url);
         const result = await response.json();
         if (result) {
@@ -51,11 +51,11 @@ export const getAccessToken = async () => {
     const tokenCheck = accessToken && (await checkToken(accessToken));
 
     if(!accessToken || tokenCheck.error) {
-        await localStorage.removeItem('access_token');
+        localStorage.removeItem('access_token');
         const searchParams = new URLSearchParams(window.location.search);
-        const code = await searchParams.get('code');
+        const code = searchParams.get('code');
         if(!code) {
-            const response = await fetch('https://meet-chi-eight.vercel.app/api/get-auth-url');
+            const response = await fetch('https://fw3jzlg092.execute-api.us-east-1.amazonaws.com/dev/api/get-auth-url)';
             const result = await response.json();
             const { authURL } = result;
             return (window.location.href = authURL);
@@ -67,7 +67,7 @@ export const getAccessToken = async () => {
 
 const getToken = async (code) => {
     const encodeCode = encodeURIComponent(code);
-    const response = await fetch('https://meet-chi-eight.vercel.app/api/token' + '/' + encodeCode);
+    const response = await fetch(' https://fw3jzlg092.execute-api.us-east-1.amazonaws.com/dev/api/token' + '/' + encodeCode);
     const { access_token } = await response.json();
     access_token && localStorage.setItem('access_token', access_token);
 
