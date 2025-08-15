@@ -55,7 +55,7 @@ export const getAccessToken = async () => {
         const searchParams = new URLSearchParams(window.location.search);
         const code = searchParams.get('code');
         if(!code) {
-            const response = await fetch('https://fw3jzlg092.execute-api.us-east-1.amazonaws.com/dev/api/get-auth-url)';
+            const response = await fetch('https://fw3jzlg092.execute-api.us-east-1.amazonaws.com/dev/api/get-auth-url');
             const result = await response.json();
             const { authURL } = result;
             return (window.location.href = authURL);
