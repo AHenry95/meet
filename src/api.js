@@ -44,8 +44,12 @@ export const getEvents = async () => {
             const result = await response.json();
             if (result) {
                 return result.events;
-            } else return null;
-        };
+            } else { 
+                return null;
+            }
+        } else {
+            return [];
+        }
     } catch (error) {
         console.error('Error in getEvents:', error);
         return [];
@@ -74,7 +78,7 @@ export const getAccessToken = async () => {
 
 const getToken = async (code) => {
     const encodeCode = encodeURIComponent(code);
-    const response = await fetch(' https://fw3jzlg092.execute-api.us-east-1.amazonaws.com/dev/api/token' + '/' + encodeCode);
+    const response = await fetch('https://fw3jzlg092.execute-api.us-east-1.amazonaws.com/dev/api/token' + '/' + encodeCode);
     const { access_token } = await response.json();
     access_token && localStorage.setItem('access_token', access_token);
 
