@@ -31,29 +31,20 @@ export const getEvents = async () => {
     if (window.location.href.startsWith('http://localhost')) {
         return mockData;
     }
-    
-    try {
-        console.log('Getting access token...');
-        const token = await getAccessToken();
-        console.log('Token received:', token);
 
-        if(token) {
-            removeQuery();
-            const url = 'https://fw3jzlg092.execute-api.us-east-1.amazonaws.com/dev/api/get-events' + '/' + token;
-            const response = await fetch(url);
-            const result = await response.json();
-            if (result) {
-                return result.events;
-            } else { 
-                return null;
-            }
-        } else {
-            return [];
-        }
-    } catch (error) {
-        console.error('Error in getEvents:', error);
-        return [];
-    };
+    console.log('Getting access token...');
+    const token = await getAccessToken();
+    console.log('Token received:', token);
+
+    if(token) {
+        removeQuery();
+        const url = 'https://fw3jzlg092.execute-api.us-east-1.amazonaws.com/dev/api/get-events' + '/' + token;
+        const response = await fetch(url);
+        const result = await response.json();
+        if (result) {
+            return result.events;
+        } else return null;
+    }
 };
 
 export const getAccessToken = async () => {
