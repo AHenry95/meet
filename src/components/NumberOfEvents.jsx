@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
 
-const NumberOfEvents = () => {
-    const [inputValue, setInputValue] = useState('32');
+const NumberOfEvents = ({ currentNOE, setCurrentNOE }) => {
+    const [inputValue, setInputValue] = useState(currentNOE);
+
+    const handleInputChange = (event) => {
+        const value = event.target.value;
+        setInputValue(value);
+
+        const numValue = parseInt(value);
+        if (numValue > 0) {
+            setCurrentNOE(value);
+        };
+    };
 
     return (
         <div id="number-of-events">
@@ -9,7 +19,7 @@ const NumberOfEvents = () => {
                 className="NumberOfEvent-setter"
                 type="text"
                 value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
+                onChange={handleInputChange}
             />
         </div>
     );
