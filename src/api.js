@@ -7,7 +7,7 @@ export const extractLocations = (events) => {
 };
 const checkToken = async(accessToken) => {
     const response = await fetch ( `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`);
-    const result = await response.json;
+    const result = await response.json();
     return result;
 };
 
@@ -60,7 +60,7 @@ const removeQuery = () => {
         window.history.pushState('', '', newurl);
     } else {
         newurl = window.location.protocol + '//' + window.location.host; 
-        window.location.pushState('', '', newurl);
+        window.history.pushState('', '', newurl);
     }
 };
 
