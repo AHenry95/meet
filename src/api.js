@@ -11,7 +11,7 @@ export const getEvents = async () => {
         return mockData;
     };
 
-    const token = getAccessToken();
+    const token = await getAccessToken();
 
     if (token) {
         removeQuery();
