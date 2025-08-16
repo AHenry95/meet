@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const NumberOfEvents = ({ currentNOE, setCurrentNOE }) => {
-    const [inputValue, setInputValue] = useState(currentNOE);
+    const [inputValue, setInputValue] = useState(String(currentNOE || 32));
+
+    useEffect(() => {
+        setInputValue(String(currentNOE || 32))
+    }, [currentNOE]);
 
     const handleInputChange = (event) => {
         const value = event.target.value;
