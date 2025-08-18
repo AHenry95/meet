@@ -31,7 +31,7 @@ describe('<Event /> component', () => {
     });
 
     test('render the event details section hidden by default', () => {
-        expect(EventComponent.container.querySelector('#event-details')).not.toBeInTheDocument();
+        expect(EventComponent.container.querySelector('.event-details')).not.toBeInTheDocument();
     });
 
     test('show event details section when user clicks "show details" button', async () => {
@@ -39,7 +39,7 @@ describe('<Event /> component', () => {
         const showDetailsButton = EventComponent.container.querySelector('.details-toggler');
         await user.click(showDetailsButton);
 
-        expect(EventComponent.container.querySelector('#event-details')).toBeInTheDocument();
+        expect(EventComponent.container.querySelector('.event-details')).toBeInTheDocument();
     });
 
     test('show details button text changes to hide details when event details are rendered', async () => {
@@ -58,6 +58,6 @@ describe('<Event /> component', () => {
         const hideDetailsButton = EventComponent.container.querySelector('.hide-details');
         await user.click(hideDetailsButton);
 
-        expect(EventComponent.container.querySelector('#event-details')).not.toBeInTheDocument();
+        expect(EventComponent.container.querySelector('.event-details')).not.toBeInTheDocument();
     });
 })

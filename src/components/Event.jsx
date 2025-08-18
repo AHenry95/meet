@@ -6,7 +6,7 @@ const Event = ({ event }) => {
     const { summary, created, location } = event;
 
     return (
-        <li key={event.id} role="listitem">
+        <li key={event.id} role="listitem" className="event">
             <h2>{summary}</h2>
             <span>{created}</span>
             <span>{location}</span>
@@ -17,7 +17,7 @@ const Event = ({ event }) => {
                 {showDetails ? 'hide details' : 'show details'}
             </button>
             {showDetails
-                ? <div id="event-details">
+                ? <div className="event-details">
                     <p>{event.description}</p>
                 </div>
                 : null
