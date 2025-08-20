@@ -12,6 +12,7 @@
     "test:noE2E": "jest --testPathIgnorePatterns=EndToEnd.test.js"
   },
   "dependencies": {
+    "atatus-spa": "^4.6.5",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
