@@ -11,5 +11,3 @@ createRoot(document.getElementById('root')).render(
     <App />
   </StrictMode>,
 );
-
-atatus.notify(new Error('Test Atatus Setup'));
