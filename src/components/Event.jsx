@@ -7,9 +7,9 @@ const Event = ({ event }) => {
 
     return (
         <li key={event.id} role="listitem" className="event">
-            <h2>{summary}</h2>
+            <h2 className="summary">{summary}</h2>
             <span>{created}</span>
-            <span>{location}</span>
+            <span className="location">{location}</span>
             <button 
                 className="details-toggler"
                 onClick={() => setShowDetails(!showDetails)}    
