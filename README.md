@@ -50,19 +50,19 @@ A React-based serverless, progressive web application that will allow users to v
 #### Scenarios
 
 ##### **Scenario 1**: An event element is collapsed by default.
-* **Given** the user opens the view for events in a certain city;
+* **Given** the user opens the app;
 * **When** the city's event list loads;
 * **Then** the events should be displayed in a collapsed state;
 
 ##### **Scenario 2**: User can expand an event to see details.
-* **Given** the user is viewing a collapsed event element;
-* **When** the user clicks on the button to see more event details;
-* **Then** the event element expands to show the user more detials;
+* **Given** user is viewing the event list;
+* **When** the user clicks on an event's "see details" button;
+* **Then** the event details section should appear on the page;
    
 ##### **Scenario 3**: User can collapse an event to hide details.
-* **Given** the user is viewing an expanded event element;
-* **When** the user clicks on the button to collapse the element view;
-* **Then** the event element changes from expanded state back to the default (collapsed) state;
+* **Given** the user is viewing an element with anexpanded detail section;
+* **When** the user clicks on the event's "hide details" button;
+* **Then** the event details section should revert to its collapsed state;
 
 ---
 ### Feature 3: Specify Number of Events
@@ -76,14 +76,14 @@ A React-based serverless, progressive web application that will allow users to v
 #### Scenarios 
 
 ##### Scenario 1: When user hasn’t specified a number, 32 events are shown by default.
-* **Given** the user selects a city in whcih to view events;
-* **When** the user should be presented with an option to select the number of events to be shown;
-* * **Then** the list of events should load the number of elements the user request (if enough are available from the API);
+* **Given** user hasn't specified a number of events to display;
+* **When** tthe user opens the app;
+* * **Then** the user should see a list of 32 events;
   
 ##### Scenario 2: User can change the number of events displayed.
-* **Given** the user is viewing a list of a selected number of events;
-* **When** the user changes the number of events to display in the event number specificer;
-* **Then** the list either adds (if avialble) events until the new number is reach OR events are removed until the new number is reached;
+* **Given** the user is viewing the events list;
+* **When** the user changes the number in the number of events textbox;
+* **Then** the list should display the entered number of events (if enough are available);
 
 ---
 ### Feature 4: Use the App When Offline
