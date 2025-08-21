@@ -9,8 +9,7 @@ describe('show/hide an event details', () => {
     let page;
 
     beforeAll(async () => {
-        browser = await puppeteer.launch({ 
-            executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+        browser = await puppeteer.launch({
             headless: false,
             slowMo: 250,
             timeout: 0
@@ -49,7 +48,6 @@ describe('filter events by city', () => {
 
     beforeAll(async () => {
         browser = await puppeteer.launch({
-            executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
             headless: false,
             slowMo: 250,
             timeout: 0
