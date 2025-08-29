@@ -16,13 +16,13 @@ export const getEvents = async () => {
         return mockData;
     };
 
-    const token = await getAccessToken();
-
     if (!navigator.onLine) {
         const events = localStorage.getItem('lastEvents');
         return events ? JSON.parse(events) : [];
     };
 
+    const token = await getAccessToken();
+    
     if (token) {
         removeQuery();
         const url = 'https://fw3jzlg092.execute-api.us-east-1.amazonaws.com/dev/api/get-events' + '/' + token;
