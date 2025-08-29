@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import CitySearch from './components/CitySearch';
 import EventList from './components/EventList';
 import NumberOfEvents from './components/NumberOfEvents';
-import { InfoAlert, ErrorAlert } from './components/Alerts';
+import { InfoAlert, ErrorAlert, WarningAlert } from './components/Alerts';
 import { getEvents, extractLocations } from './api.js';
 
 import './App.css';
@@ -14,6 +14,7 @@ function App() {
 	const [currentCity, setCurrentCity] = useState('See all cities');
 	const [infoAlert, setInfoAlert] = useState('');
 	const [errorAlert, setErrorAlert] = useState('');
+	const [warningAlert, setWarningAlert] = useState('');
 
 	const fetchData = async () => {
 		const allEvents = await getEvents();
@@ -25,6 +26,11 @@ function App() {
 	}
 
 	useEffect(() => {
+		if(navigator.onLine) {
+			setWarningAlert('');
+		} else {
+			setWarningAlert('You are offline. Please reconnect to the internet if you wish to see an updated list of events.');
+		}
 		fetchData();
 	}, [currentCity, currentNOE]);
 
@@ -37,6 +43,10 @@ function App() {
 				}
 				{errorAlert.length
 					? <ErrorAlert text={errorAlert} />
+					: null
+				}
+				{warningAlert.length
+					? <WarningAlert text={warningAlert} />
 					: null
 				}
 			</div>
