@@ -18,6 +18,11 @@ export const getEvents = async () => {
 
     const token = await getAccessToken();
 
+    if (!navigator.onLine) {
+        const events = localStorage.getItem('lastEvents');
+        return events ? JSON.parse(events) : [];
+    };
+
     if (token) {
         removeQuery();
         const url = 'https://fw3jzlg092.execute-api.us-east-1.amazonaws.com/dev/api/get-events' + '/' + token;
@@ -62,11 +67,6 @@ const removeQuery = () => {
         newurl = window.location.protocol + '//' + window.location.host; 
         window.history.pushState('', '', newurl);
     }
-};
-
-if (!navigator.onLine) {
-    const events = localStorage.getItem('lastEvents');
-    return events ? JSON.parse(events) : [];
 };
 
 const getToken = async (code) => {
