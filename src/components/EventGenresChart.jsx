@@ -56,7 +56,7 @@ const EventGenresChart = ({ events }) => {
                         ))
                     }
                 </Pie>
-                <Legend vertialAlign="bottom" />
+                <Legend verticalAlign="bottom" />
             </PieChart>
         </ResponsiveContainer>
     );
